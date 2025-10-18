@@ -13,10 +13,17 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Deploy to public repository
+      - name: Minify JS and HTML
+        run: |
+          npm install -g minify
+          mkdir public
+          minify index.html > public/index.html
+          minify script.js > public/script.js
+
+      - name: Deploy obfuscated files
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           external_repository: LuxeConnect/ar-project-pub
           publish_branch: main
-          publish_dir: .
+          publish_dir: ./public
