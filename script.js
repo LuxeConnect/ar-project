@@ -113,7 +113,7 @@ async function init() {
     function renderLoop() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height); // Рендерим видео
-        ctx.strokeStyle = '#00FF00';
+        ctx.strokeStyle = 'rgb(0, 255, 0)';
         ctx.lineWidth = 3;
         boxes.forEach(box => {
             ctx.strokeRect(box.x, box.y, box.width, box.height);
@@ -128,6 +128,7 @@ async function init() {
 }
 
 init();
+
 
 
 
