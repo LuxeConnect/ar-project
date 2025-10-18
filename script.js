@@ -94,7 +94,7 @@ async function init() {
         for (let y = 0; y < tempCanvas.height; y++) {
             for (let x = 0; x < tempCanvas.width; x++) {
                 const idx = (y * tempCanvas.width + x) * 4;
-                if (!visited[idx / 4] && isDark(data[idx], data[i + 1], data[idx + 2], thresh)) {
+                if (!visited[idx / 4] && isDark(data[idx], data[idx + 1], data[idx + 2], thresh)) {
                     const bbox = floodFill(x, y, data, tempCanvas.width, tempCanvas.height, visited, thresh);
                     if (bbox) newBoxes.push(bbox);
                 }
@@ -113,7 +113,7 @@ async function init() {
     function renderLoop() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height); // Рендерим видео
-        ctx.strokeStyle = '#00FF00'; // Цвет рамки
+        ctx.strokeStyle = '#00FF00';
         ctx.lineWidth = 3;
         boxes.forEach(box => {
             ctx.strokeRect(box.x, box.y, box.width, box.height);
