@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>AR Полотно: Выделение тёмных областей</title>
+    <style>
+        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: black; color: white; font-family: Arial, sans-serif; }
+        #canvas { width: 100%; height: auto; }
+        #instructions { position: absolute; top: 10px; left: 10px; background: rgba(0, 0, 0, 0.7); padding: 10px; border-radius: 5px; z-index: 10; }
+        #controls { position: absolute; bottom: 10px; left: 10px; background: rgba(0, 0, 0, 0.7); padding: 10px; border-radius: 5px; z-index: 10; }
+    </style>
+</head>
+<body>
+    <video id="video" autoplay playsinline style="display: none;"></video> <!-- Скрыт, используется для потока -->
+    <canvas id="canvas"></canvas>
+    <div id="instructions">Наведите камеру на полотно. Тёмные области будут выделены зелёным.</div>
+    <div id="controls">
+        <label for="threshold">Порог яркости: <span id="thresholdValue">80</span></label>
+        <input type="range" id="threshold" min="50" max="350" value="80">
+        <label for="minArea">Минимальная площадь: <span id="minAreaValue">50</span></label>
+        <input type="range" id="minArea" min="1" max="50" value="50">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
