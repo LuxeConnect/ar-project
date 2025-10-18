@@ -19,4 +19,4 @@ jobs:
           github_token: ${{ secrets.PERSONAL_TOKEN }}
           external_repository: LuxeConnect/ar-project-pub
           publish_branch: main
-          publish_dir: . 
+          publish_dir: .  
